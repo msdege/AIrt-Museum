@@ -11,7 +11,7 @@ class image:
     def __init__(self):
         # set API key
         # openai.api_key = os.environ.get("OPENAI_API_KEY")
-        openai.api_key = "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"
+        openai.api_key = os.environ.get("OPENAI_API_KEY")
 
         """
         Variables

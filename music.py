@@ -1,3 +1,10 @@
+"""
+AudioCraft Resources:
+https://huggingface.co/facebook/musicgen-small
+https://github.com/facebookresearch/audiocraft
+
+"""
+
 import torchaudio
 from audiocraft.models import MusicGen
 from audiocraft.data.audio import audio_write
@@ -56,7 +63,6 @@ class music:
             description = self.music_descriptions[idx][:10]
             self.music_path = audio_write(f'generatedMusic\{description}', one_wav.cpu(), self.model.sample_rate, strategy="loudness", loudness_compressor=True)
 
-
             print("Path to generated music:", self.music_path)
 
 
@@ -69,15 +75,20 @@ class music:
             return
         
         # Extract data and sampling rate from file
-        data, fs = sf.read(self.music_path, dtype='float32')  
-        sd.play(data, fs)
-        sd.wait()  # Wait until file is done playing
+        data, fs = sf.read(self.music_path, dtype='float32')
+
+        # play music indefinitely
+        while True:  
+            sd.play(data, fs)
+            sd.wait()  # Wait until file is done playing
 
     """
-    Testing Methods
+    Getters and Testing Methods
     """
+    def getMusicPath(self) -> str:
+        return self.music_path
+
     def getPrecreatedMusic(self, path: str):
-
         self.music_path = path
 
 

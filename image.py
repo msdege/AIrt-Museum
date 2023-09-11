@@ -1,6 +1,12 @@
+
+"""
+DALL-E 2 Resources: 
+https://platform.openai.com/account/api-keys
+https://github.com/openai/openai-cookbook/blob/main/examples/dalle/Image_generations_edits_and_variations_with_DALL-E.ipynb
+"""
+
 import pygame
 import requests # used to download images
-import io
 import openai  # OpenAI Python library to make API calls
 import os # used to access filepaths
 from PIL import Image  # used to print and edit images
@@ -43,7 +49,7 @@ class image:
 
     def getUserInput(self):
 
-        print("Prompt DALL-E with your request: ")
+        print("Prompt DALL-E with your art request: ")
         self.userPrompt = input()
 
 
